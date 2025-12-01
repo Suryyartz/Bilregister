@@ -8,6 +8,7 @@ int main() {
            "3. Sort\n"
            "4. Show Vehicle\n"
            "5. Show Registry\n"
+           "6. Random Vehicle\n"
            "0. Quit!\n");
     return 0;
 }
