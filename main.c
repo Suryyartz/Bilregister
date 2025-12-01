@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define Add_vehicle 1
+#define Remove_vehicle 2
+#define Sort 3
+#define Show_vehicle 4
+#define Show_registry 5
+#define Random_vehicle 6
+#define Quit 0
+
 
 int main() {
     printf("1. Add Vehicle\n"
@@ -10,5 +18,27 @@ int main() {
            "5. Show Registry\n"
            "6. Random Vehicle\n"
            "0. Quit!\n");
-    return 0;
+    int choice;
+    scanf("%d", &choice);
+    switch(choice) {
+        case Add Vehicle: printf("Vehicle type\n"); break;
+
+        case Remove Vehicle: printf("Control Rod Failure\n"); break;
+
+        case Sort: printf("Door Failure\n"); break;
+
+        case Show_vehicle: printf("Coolant Failure\n"); break;
+
+        case Show_registry: printf("Coolant Failure\n"); break;
+        
+        case Random_vehicle: printf("Coolant Failure\n"); break;
+        
+        case Quit: printf("Coolant Failure\n"); break;
+        
+        default: printf("Unknown Status! \n");
 }
+
+}
+
+
+
