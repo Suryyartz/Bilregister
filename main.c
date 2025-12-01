@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include <ctype.h>
+
+
 #define Add_vehicle 1
 #define Remove_vehicle 2
 #define Sort 3
@@ -8,6 +12,8 @@
 #define Show_registry 5
 #define Random_vehicle 6
 #define Quit 0
+#define Size 10
+#define Name 32
 
 
 int main() {
@@ -20,10 +26,31 @@ int main() {
            "0. Quit!\n");
     int choice;
     scanf("%d", &choice);
-    switch(choice) {
-        case Add Vehicle: printf("Vehicle type:\n"); break;
+    
+    char Brand[Size][Name]= {0};
+    char Model[Size][Name] = {0};
+    char Reg_number[Size]= {0};
+    char Owner[Size]= {0};
+    char Ow_name[Size]= {0};
+    int Ow_age[Size]= {0};
+    int position = 0;
 
-        case Remove Vehicle: printf("Which vehicle would you like to remove (1-10) ?\n"); break;
+    switch(choice) {
+        case Add_Vehicle: printf("Vehicle type:\n"); 
+        if (position <= Size) {
+            printf("The car slots are full !\n");
+            break;
+        }
+        
+            scanf("%s", Brand[position]);
+        
+            position++;
+            printf("Vehicle added.\n");
+            break;
+        
+
+
+        case Remove_Vehicle: printf("Which vehicle would you like to remove (1-10) ?\n"); break;
 
         case Sort: printf("Wihch vehicle would you like see (1-10)?\n"); break;
 
