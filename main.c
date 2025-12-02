@@ -1,14 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-#include <ctype.h>
 
-#include "file.h"
+#include "fil.h"
 
-
-
-void meny(){
+void menu(){
     int choice = -1;
     while(choice != Quit){
     printf("1. Add Vehicle\n"
@@ -26,7 +19,7 @@ void meny(){
  char Reg_number[Size]= {0};
  char Owner[Size]= {0};
  int Ow_age[Size]= {0};
- 
+
  int position = 0;
 
  switch(choice) {
@@ -41,9 +34,6 @@ void meny(){
      
          position++;
          printf("Vehicle added.\n\n");
-         
-     
-
 
      case Remove_vehicle: printf("Which vehicle would you like to remove (1-10) ?\n"); break; 
 
@@ -59,10 +49,10 @@ void meny(){
       }
     }
 }
+
 int main() {
+menu();
 
-
-meny();
 }
 
 
