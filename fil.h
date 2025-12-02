@@ -1,3 +1,11 @@
+//library
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include <ctype.h>
+
+//define
 #define Add_vehicle 1
 #define Remove_vehicle 2
 #define Sort 3
