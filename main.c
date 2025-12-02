@@ -4,67 +4,65 @@
 #include <string.h>
 #include <ctype.h>
 
-
-#define Add_vehicle 1
-#define Remove_vehicle 2
-#define Sort 3
-#define Show_vehicle 4
-#define Show_registry 5
-#define Random_vehicle 6
-#define Quit 0
-#define Size 10
-#define Name 32
+#include "file.h"
 
 
-int main() {
+
+void meny(){
+    int choice = -1;
+    while(choice != Quit){
     printf("1. Add Vehicle\n"
-           "2. Remove Vehicle\n"
-           "3. Sort\n"
-           "4. Show Vehicle\n"
-           "5. Show Registry\n"
-           "6. Random Vehicle\n"
-           "0. Quit!\n");
-    int choice;
-    scanf("%d", &choice);
-    
-    char Brand[Size][Name]= {0};
-    char Model[Size][Name] = {0};
-    char Reg_number[Size]= {0};
-    char Owner[Size]= {0};
-    char Ow_name[Size]= {0};
-    int Ow_age[Size]= {0};
-    int position = 0;
+        "2. Remove Vehicle\n"
+        "3. Sort\n"
+        "4. Show Vehicle\n"
+        "5. Show Registry\n"
+        "6. Random Vehicle\n"
+        "0. Quit!\n");
+ 
+ scanf("%d", &choice);
+ 
+ char Brand[Size][Name]= {0};
+ char Model[Size][Name] = {0};
+ char Reg_number[Size]= {0};
+ char Owner[Size]= {0};
+ int Ow_age[Size]= {0};
+ 
+ int position = 0;
 
-    switch(choice) {
-        case Add_Vehicle: printf("Vehicle type:\n"); 
-        if (position <= Size) {
-            printf("The car slots are full !\n");
-            break;
-        }
-        
-            scanf("%s", Brand[position]);
-        
-            position++;
-            printf("Vehicle added.\n");
-            break;
-        
+ switch(choice) {
+     
+    case Add_vehicle: printf("Vehicle type:\n"); 
+     if (position >= Size) {
+         printf("The car slots are full !\n");
+         
+     }
+     
+         scanf("%s", Brand[position]);
+     
+         position++;
+         printf("Vehicle added.\n\n");
+         
+     
 
 
-        case Remove_Vehicle: printf("Which vehicle would you like to remove (1-10) ?\n"); break;
+     case Remove_vehicle: printf("Which vehicle would you like to remove (1-10) ?\n"); break; 
 
-        case Sort: printf("Wihch vehicle would you like see (1-10)?\n"); break;
+     case Sort: printf("Wihch vehicle would you like see (1-10)?\n"); break; 
 
-        case Show_vehicle: printf("Coolant Failure\n"); break;
+     case Show_vehicle: printf("Coolant Failure\n"); break; 
 
-        case Show_registry: printf("Coolant Failure\n"); break;
-        
-        case Random_vehicle: printf("Coolant Failure\n"); break;
-        
-        case Quit: printf("The program is closing....\n"); break;
-        
-        default: printf("Unknown Status! \n");
+     case Show_registry: printf("Coolant Failure\n"); break; 
+     
+     case Random_vehicle: printf("Coolant Failure\n"); break; 
+     
+     case Quit: printf("The program is closing....\n");break; 
+      }
     }
+}
+int main() {
 
+
+meny();
 }
 
 
