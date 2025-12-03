@@ -24,6 +24,22 @@ while(choice != Quit){
      if (position >= Size) {
          printf("\nThe Vehicle slots are full !\n\n");break;
         }
+
+        FILE *fileR = fopen("Bilreg/registry.txt", "r");
+        if (!fileR) { printf("Could not open file!\n"); break; }
+
+        int current_line = 1;
+        char c;
+        while ((c = fgetc(fileR)) != EOF) {
+            if (c == '\n') current_line++;
+        }
+        fclose(fileR);
+
+        if (current_line >= 60) {
+            printf("\nThe Vehicle slots are full!\n\n");
+            break;
+        }
+        
     else {
         printf("\nVehicle Brand:\n");
         fgets(registry[position].Brand, Name, stdin);
@@ -87,6 +103,3 @@ int main() {
 menu();
 
 }
-
-
-
