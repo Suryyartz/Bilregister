@@ -47,7 +47,6 @@ while(choice != Quit){
 
 
         FILE *file = fopen("Bilreg/registry.txt", "a");
-        int lines =0
         
         fprintf(file, "Brand: %s\n", registry[position].Brand);
         fprintf(file, "Model: %s\n", registry[position].Model);
