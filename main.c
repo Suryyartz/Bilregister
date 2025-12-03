@@ -1,10 +1,14 @@
 
 #include "fil.h"
+#include "fil.c"
 
 void menu(){
     int choice = -1;
+    int position = 0;
+    Vehicle registry[Size];
+
     while(choice != Quit){
-    printf("1. Add Vehicle\n"
+    printf("\n1. Add Vehicle\n"
         "2. Remove Vehicle\n"
         "3. Sort\n"
         "4. Show Vehicle\n"
@@ -13,39 +17,51 @@ void menu(){
         "0. Quit!\n");
  
  scanf("%d", &choice);
- 
- char Brand[Size][Name]= {0};
- char Model[Size][Name] = {0};
- char Reg_number[Size]= {0};
- char Owner[Size]= {0};
- int Ow_age[Size]= {0};
+ getchar();
 
- int position = 0;
+ 
 
  switch(choice) {
      
-    case Add_vehicle: printf("Vehicle type:\n"); 
+    case Add_vehicle:
      if (position >= Size) {
-         printf("The car slots are full !\n");
+         printf("\nThe Vehicle slots are full !\n\n");break;
          
      }
-     
-         scanf("%s", Brand[position]);
-     
+        printf("\nVehicle Brand:\n");
+        fgets(registry[position].Brand, Name, stdin);
+        registry[position].Brand[strcspn(registry[position].Brand, "\n")] = 0;
+
+        printf("\nVehicle Model:\n");
+        fgets(registry[position].Model, Name, stdin);
+        registry[position].Model[strcspn(registry[position].Model, "\n")] = 0;
+
+        printf("\nVehicle Registry Number:\n");
+        fgets(registry[position].Reg_number, Name, stdin);
+        registry[position].Reg_number[strcspn(registry[position].Reg_number, "\n")] = 0;
+
+        printf("\nVehicle Owner:\n");
+        fgets(registry[position].Owner, Name, stdin);
+        registry[position].Owner[strcspn(registry[position].Owner, "\n")] = 0;
+
+        printf("\nOwner Age:\n");
+        scanf("%d", &registry[position].Ow_age);
+        getchar();  
+
          position++;
-         printf("Vehicle added.\n\n");
+         printf(ANSI_COLOR_BLUE"\nVehicle added.\n" ANSI_COLOR_RESET ); break;
 
-     case Remove_vehicle: printf("Which vehicle would you like to remove (1-10) ?\n"); break; 
+     case Remove_vehicle: printf("\nWhich vehicle would you like to remove (1-10) ?\n"); break; 
 
-     case Sort: printf("Wihch vehicle would you like see (1-10)?\n"); break; 
+     case Sort: printf("\nWihch vehicle would you like see (1-10)?\n"); break; 
 
-     case Show_vehicle: printf("Coolant Failure\n"); break; 
+     case Show_vehicle: printf("\nCoolant Failure\n"); break; 
 
-     case Show_registry: printf("Coolant Failure\n"); break; 
+     case Show_registry: printf("\nCoolant Failure\n"); break; 
      
-     case Random_vehicle: printf("Coolant Failure\n"); break; 
+     case Random_vehicle: printf("\nCoolant Failure\n"); break; 
      
-     case Quit: printf("The program is closing....\n");break; 
+     case Quit: printf("\nThe program is closing....\n");break; 
       }
     }
 }
