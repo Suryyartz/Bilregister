@@ -11,7 +11,6 @@
 #define Quit 0
 #define Size 10
 #define Name 256
-#define Max_line 60
 #define ANSI_COLOR_BLUE  "\x1b[34m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define Object 1
