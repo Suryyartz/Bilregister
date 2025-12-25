@@ -82,4 +82,3 @@ menu();
 // hur ska vi skrivs ut en viss position
 //när vi skriver en bokstav koden funnkar, hur fixar vi det.
 
-
