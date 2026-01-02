@@ -51,6 +51,49 @@ void Addvehicle (Vehicle *reg, int *position) {
         printf(ANSI_COLOR_BLUE"\nVehicle added.\n" ANSI_COLOR_RESET );
     }
 }
+
+
+
+
+
+void Removevehicle(Vehicle *reg, int *position) {
+    if (*position < 1) {
+        printf("\nThe registry is empty.\n");
+        return;
+    }
+    int selection = -1;
+    printf("Enter a number between 1 and %d:\n", *position);
+    while( scanf ("%d", &selection) != 1) {
+        printf("Invalid, enter numbers only\n");
+        while (getchar() != '\n') {
+            continue;
+        }
+    }
+    if(selection<1 || selection>*position ){
+        printf("Invalid, please enter a valid car number\n");
+    }
+    
+    else{
+        int subselction = selection -1;
+        for (int i = subselction; i < *position - 1; i++){
+            reg[i] = reg[i + 1];
+        }
+        strcpy(reg[*position - 1].Brand, "");
+        strcpy(reg[*position - 1].Model, "");
+        strcpy(reg[*position - 1].Reg_number, "");
+        strcpy(reg[*position - 1].Owner.name, "");
+        reg[*position - 1].Owner.age = 0;
+        (*position)--;
+        printf(ANSI_COLOR_BLUE"\nVehicle #%d removed.\n" ANSI_COLOR_RESET, selection);
+    }
+
+}
+
+
+
+
+
+
 void Showvehicle(Vehicle *reg, int position){
     if (position < 1) {
         printf("\nThe registry is empty.\n");
@@ -70,13 +113,13 @@ void Showvehicle(Vehicle *reg, int position){
         printf("Invalid, please enter a valid car number\n");
     }
     else{
-        int BBC = selection -1;
+        int subselction = selection -1;
         printf("\n" ANSI_COLOR_BLUE "=== VEHICLE #%d ===\n" ANSI_COLOR_RESET, selection);
-        printf("  Brand: %s\n", reg[BBC].Brand);
-        printf("  Model: %s\n", reg[BBC].Model);
-        printf("  Registry Number: %s\n", reg[BBC].Reg_number);
-        printf("  Owner: %s\n", reg[BBC].Owner.name);
-        printf("  Owner Age: %d\n", reg[BBC].Owner.age);
+        printf("  Brand: %s\n", reg[subselction].Brand);
+        printf("  Model: %s\n", reg[subselction].Model);
+        printf("  Registry Number: %s\n", reg[subselction].Reg_number);
+        printf("  Owner: %s\n", reg[subselction].Owner.name);
+        printf("  Owner Age: %d\n", reg[subselction].Owner.age);
     }
 }
 
