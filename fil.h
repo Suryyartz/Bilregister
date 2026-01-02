@@ -32,6 +32,7 @@ void init_reg (Vehicle *reg, int size);
 
 //Add/Remove
 void Addvehicle (Vehicle *reg, int *position);
+void Removevehicle (Vehicle *reg, int *position);
 
 //registry and Show vehicle
 void Showvehicle (Vehicle *reg, int position);
