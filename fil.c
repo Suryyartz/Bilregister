@@ -139,6 +139,26 @@ void Showreg(Vehicle *reg, int position){
         }
 }
 
+void Sort_vehicles(Vehicle *reg, int position) {
+    if (position < 2) {
+        printf("\nNot enough vehicles to sort. Need at least 2 vehicles.\n");
+        return;
+    }
+    
+    Vehicle temp;
+    for (int i = 0; i < position - 1; i++) {
+        for (int j = 0; j < position - i - 1; j++) {
+            if (strcmp(reg[j].Brand, reg[j + 1].Brand) > 0) {
+                temp = reg[j];
+                reg[j] = reg[j + 1];
+                reg[j + 1] = temp;
+            }
+        }
+    }
+    
+    printf(ANSI_COLOR_BLUE "\nVehicles sorted by brand name.\n" ANSI_COLOR_RESET);
+}
+
 void Load_file(Vehicle *reg, int *position){
    FILE *fp = fopen("reg.dat", "rb");
    if (fp == NULL) {
