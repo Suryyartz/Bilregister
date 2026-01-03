@@ -39,7 +39,7 @@ void menu() {
             }
 
             case Sort: {
-                printf("\nSorting..\n");
+                Sort_vehicles(reg, position);
                 break;
             }
 
@@ -77,6 +77,7 @@ menu();
 
 
 }
+
 
 
 
