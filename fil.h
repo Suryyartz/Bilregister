@@ -38,6 +38,9 @@ void Removevehicle (Vehicle *reg, int *position);
 void Showvehicle (Vehicle *reg, int position);
 void Showreg (Vehicle *reg, int position);
 
+//Sort
+void Sort_vehicles (Vehicle *reg, int position);
+
 //Svae/Load
 void Save_file (Vehicle *reg, int position);
 void Load_file (Vehicle *reg, int *position);
