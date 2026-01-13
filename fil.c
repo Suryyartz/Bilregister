@@ -207,3 +207,61 @@ void Save_file(Vehicle *reg, int position){
 
     fclose(fp);
 }
+
+void Randomvehicle(Vehicle *reg, int *position) {
+    if (*position >= Size) {
+        printf("\nThe Vehicle slots are full !\n\n");
+        return;
+    }
+    
+    char *brands[] = {
+        "Toyota", "Honda", "Ford", "BMW", "Mercedes-Benz",
+        "Audi", "Volkswagen", "Tesla", "Nissan", "Chevrolet",
+        "Volvo", "Hyundai", "Kia", "Mazda", "Subaru"
+    };
+    int num_brands = 15;
+    
+    char *models[] = {
+        "Camry", "Civic", "F-150", "3 Series", "C-Class",
+        "A4", "Golf", "Model 3", "Altima", "Silverado",
+        "XC90", "Elantra", "Sorento", "CX-5", "Outback"
+    };
+    int num_models = 15;
+    
+    char *reg_prefixes[] = {
+        "ABC", "DEF", "GHI", "JKL", "MNO",
+        "PQR", "STU", "VWX", "YZA", "BCD",
+        "EFG", "HIJ", "KLM", "NOP", "QRS"
+    };
+    int num_prefixes = 15;
+    
+    char *owner_names[] = {
+        "John Smith", "Emma Johnson", "Michael Brown", "Sarah Davis", "David Wilson",
+        "Lisa Anderson", "Robert Taylor", "Jennifer Martinez", "Christopher Lee", "Amanda White",
+        "James Miller", "Maria Garcia", "William Jones", "Patricia Williams", "Richard Moore"
+    };
+    int num_names = 15;
+    
+    int age_min = 18;
+    int age_max = 100;
+    
+    int brand_idx = rand() % num_brands;
+    int model_idx = rand() % num_models;
+    int reg_prefix_idx = rand() % num_prefixes;
+    int name_idx = rand() % num_names;
+    int reg_number = 100 + (rand() % 900); 
+    int age = age_min + (rand() % (age_max - age_min + 1)); 
+    
+    char reg_number_str[Name];
+    snprintf(reg_number_str, Name, "%s%d", reg_prefixes[reg_prefix_idx], reg_number);
+    
+    strcpy(reg[*position].Brand, brands[brand_idx]);
+    strcpy(reg[*position].Model, models[model_idx]);
+    strcpy(reg[*position].Reg_number, reg_number_str);
+    strcpy(reg[*position].Owner.name, owner_names[name_idx]);
+    reg[*position].Owner.age = age;
+    
+    (*position)++;
+    printf(ANSI_COLOR_BLUE "\nRandom vehicle added: %s %s\n" ANSI_COLOR_RESET, 
+           brands[brand_idx], models[model_idx]);
+}
