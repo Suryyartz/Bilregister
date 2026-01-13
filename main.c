@@ -54,7 +54,7 @@ void menu() {
             }
 
             case Random_vehicle: {
-                printf("\nrandom\n");
+                Randomvehicle(reg, &position);
                 break;
             }
 
@@ -73,7 +73,8 @@ void menu() {
 
 
 int main() {
-menu();
+    srand(time(NULL));
+    menu();
 
 
 }
