@@ -45,5 +45,8 @@ void Sort_vehicles (Vehicle *reg, int position);
 void Save_file (Vehicle *reg, int position);
 void Load_file (Vehicle *reg, int *position);
 
+//Random
+void Randomvehicle (Vehicle *reg, int *position);
+
 
 #endif
